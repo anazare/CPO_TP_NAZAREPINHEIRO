@@ -28,12 +28,12 @@ public class Calculator {
         } else {
         
             System.out.println("\n Please enter the first number :");
-            double operande1 = sc.nextInt();
+            int operande1 = sc.nextInt();
 
             System.out.println("\n Please enter the second number :");
-            double operande2 = sc.nextInt();
+            int operande2 = sc.nextInt();
 
-            double result=0;      
+            int result=0;      
             if (operateur==1) {
                 result = operande1 + operande2;
             } else { 
