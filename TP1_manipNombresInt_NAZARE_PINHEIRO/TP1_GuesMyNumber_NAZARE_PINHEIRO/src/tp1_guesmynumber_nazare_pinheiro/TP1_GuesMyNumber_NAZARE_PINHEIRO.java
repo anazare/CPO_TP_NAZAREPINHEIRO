@@ -34,7 +34,23 @@ public class TP1_GuesMyNumber_NAZARE_PINHEIRO {
         int difficulte = sc.nextInt(); 
         
         switch (difficulte) {
-            case 1 :
+            case 1:
+                while (nb!=n){
+                    System.out.println("Saisisez une valeur :");
+                    nb = sc.nextInt();
+                    if (nb>n){
+                        int difference = nb-n;
+                        System.out.println("trop grand, vous devez soustraire : "+ difference);
+                        c=c+1;
+                    } if (nb<n) {
+                        int difference =nb-n;
+                        System.out.println("trop petit,  vous devez ajouter : "+ difference);
+                        c=c+1;
+                    } 
+                }
+                System.out.println("gagné en "+c+" tentatives");
+                break;
+            case 2:
                 while (nb!=n){
                     System.out.println("Saisisez une valeur :");
                     nb = sc.nextInt();
@@ -48,8 +64,24 @@ public class TP1_GuesMyNumber_NAZARE_PINHEIRO {
                 }
                 System.out.println("gagné en "+c+" tentatives");
                 break;
-            case 2:
-                
+            case 3: 
+                while (nb!=n){
+                    while (c<=3){
+                    System.out.println("Saisisez une valeur :");
+                    nb = sc.nextInt();
+                    if (nb>n){
+                        System.out.println("trop grand");
+                        c=c+1;
+                    } if (nb<n) {
+                        System.out.println("trop petit");
+                        c=c+1;
+                    } else {
+                        System.out.println("perdu");
+                        break;
+                    }}
+                }
+                System.out.println("gagné en "+c+" tentatives");
+                break;
         }
             
     } 
