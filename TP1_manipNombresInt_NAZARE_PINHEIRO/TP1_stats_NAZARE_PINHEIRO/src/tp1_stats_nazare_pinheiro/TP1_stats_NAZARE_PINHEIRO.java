@@ -11,6 +11,7 @@ import java.util.Scanner;
 /**
  *ANA RITA NAZARE PINHEIRO
  * 04/10/23
+ * FG 2A
  * @author anaza
  */
 public class TP1_stats_NAZARE_PINHEIRO {
