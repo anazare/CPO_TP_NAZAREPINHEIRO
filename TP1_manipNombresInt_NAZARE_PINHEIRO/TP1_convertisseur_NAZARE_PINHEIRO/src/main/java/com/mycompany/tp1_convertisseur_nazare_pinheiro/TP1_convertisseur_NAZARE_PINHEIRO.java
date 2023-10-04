@@ -16,23 +16,46 @@ import java.util.Scanner;
 public class TP1_convertisseur_NAZARE_PINHEIRO {
 
     public static void main(String[] args) {
-        double temp_celcius;
+        
         Scanner sc = new Scanner (System.in); 
-        System.out.println("Entrez une température en degrés :");
-        temp_celcius = sc.nextDouble();
-        
-        double temp_kelvin = temp_celcius + 273.15; 
-        System.out.println("cette température est équivalente à "+ temp_kelvin+" Kelvins");
-        
-        
-        System.out.println(KelvinVersCelcius(25));
+        System.out.println("Bonjour, saisisez une valeur :");
+        double nb = sc.nextDouble(); 
+        System.out.println("Saisissez la conversion que dvous souhaitez effectuer : \n 1) De Celcius vers Kelvin\n 2) De Kelvin vers Celcius\n 3) De Farenheir vers Celcius \n 4) De Celcius vers Farenheit \n 5) De Kelvin vers Farenheit \n 6) De Farenheit vers Kelvin");
+        int cv = sc.nextInt();
         
         
+        if (cv==1){
+            double s = CelciusversKelvin(nb);
+            System.out.println(nb + " degré Kelvin est égal à "+ s +" degrés Celcius");
+        }
+        if (cv==2) {
+            double s = KelvinVersCelcius(nb);
+            System.out.println(nb + " degré Kelvin est égal à "+ s+" degré Kelvin");
+        }
+        if (cv==3){
+            double s = FarenheitVersCelcius(nb);
+            System.out.println(nb + " degré Farenheit est égal à "+ s+" degré Celcius");
+        }
+        if (cv==4){
+            double s = CelciusVersFarenheit(nb);
+            System.out.println(nb + " degré Celcius est égal à "+ s+" degré Farenheit");
+        }
+        if (cv==5){
+            double s = KelvinVersFarenheit(nb);
+            System.out.println(nb + " degré Kelvin est égal à "+ s+" degré Farenheit");
+        }
+        if (cv==6){
+            double s = FarenheitVersKelvin(nb);
+            System.out.println(nb + " degré Farenheit est égal à "+ s+" degré Kelvin");
+        }
     }
+        //- CelciusVersKelvin
+        
     public static double CelciusVersKelvin (double tCelcius){
-        return tCelcius+273.15;  
-   }
-   //- KelvinVersCelcius
+            return tCelcius+273.15;  
+        }
+
+        //- KelvinVersCelcius
         public static double KelvinVersCelcius (double tKelvin){
             return tKelvin-273.15;
         }        
