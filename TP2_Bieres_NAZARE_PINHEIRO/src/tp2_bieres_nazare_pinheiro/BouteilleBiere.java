@@ -31,4 +31,5 @@ public class BouteilleBiere {
             ouverte=false;
         }
     }
+    
 }
