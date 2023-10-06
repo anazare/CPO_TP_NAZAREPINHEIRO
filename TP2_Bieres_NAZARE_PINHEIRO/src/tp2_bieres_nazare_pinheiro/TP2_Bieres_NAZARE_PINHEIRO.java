@@ -33,10 +33,7 @@ public class TP2_Bieres_NAZARE_PINHEIRO {
         
         BouteilleBiere uneBiere = new BouteilleBiere("Cuvée de trolls", 7.0,"Dubuisson" );
         BouteilleBiere deuxBiere = new BouteilleBiere("Leffe", 6.6, "Abbaye de Leffe");
-    }
-    
-    
-    
-    
-    
+        System.out.println(uneBiere.Décapsuler());
+        System.out.println(uneBiere);
+    }   
 }
