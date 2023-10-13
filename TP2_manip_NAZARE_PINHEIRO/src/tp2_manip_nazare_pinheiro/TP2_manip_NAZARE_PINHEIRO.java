@@ -21,7 +21,7 @@ public class TP2_manip_NAZARE_PINHEIRO {
         // une référence objet 
         Tartiflette assiette2 = new Tartiflette(600);
         Tartiflette assiette3 = assiette2;
-        // deux références objet
+        // deux références objet pour le même objet 
         Tartiflette a=assiette1;
         assiette1=assiette2; 
         assiette2=a;
@@ -32,10 +32,14 @@ public class TP2_manip_NAZARE_PINHEIRO {
         
         //Moussaka assiette666 = assiette1;
         //Moussaka assiette667 = new Tartiflette;
+                
+        Moussaka[] moussakas = new Moussaka[10];
         
-        String [ ] monTableau = new String[10];
-        Moussaka[0]= prem;
-        
+        for (int i = 0; i < moussakas.length; i++) {
+            moussakas[i] = new Moussaka((i+1)*100);
+            System.out.println(moussakas[i].nbCalories);
+        }
+
     }
     
 }
