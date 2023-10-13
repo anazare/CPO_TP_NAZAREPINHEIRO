@@ -43,22 +43,22 @@ public class TP2_convertisseurObjet_NAZARE_PINHEIRO {
         Convertisseur c = new Convertisseur();
         
         if (conv==1){
-            System.out.println(temp + " degré Celcius est égal à "+ c.CelciusVersKelvin(temp) +" degrés Kelvin");
+            System.out.println(temp + " degré Celcius est égal à "+ c.CelciusVersKelvin(temp) +" degrés Kelvin"+"\n"+ c.toString());
         }
         if (conv==2) {
-            System.out.println(temp + " degré Kelvin est égal à "+ c.KelvinVersCelcius(temp)+" degré Kelvin");
+            System.out.println(temp + " degré Kelvin est égal à "+ c.KelvinVersCelcius(temp)+" degré Kelvin"+"\n"+ c.toString());
         }
         if (conv==3){
-            System.out.println(temp + " degré Farenheit est égal à "+ c.FarenheitVersCelcius(temp)+" degré Celcius");
+            System.out.println(temp + " degré Farenheit est égal à "+ c.FarenheitVersCelcius(temp)+" degré Celcius"+"\n"+ c.toString());
         }
         if (conv==4){
-            System.out.println(temp + " degré Celcius est égal à "+ c.CelciusVersFarenheit(temp)+" degré Farenheit");
+            System.out.println(temp + " degré Celcius est égal à "+ c.CelciusVersFarenheit(temp)+" degré Farenheit"+"\n"+ c.toString());
         }
         if (conv==5){
-            System.out.println(temp + " degré Kelvin est égal à "+ c.KelvinVersFarenheit(temp)+" degré Farenheit");
+            System.out.println(temp + " degré Kelvin est égal à "+ c.KelvinVersFarenheit(temp)+" degré Farenheit"+"\n"+ c.toString());
         }
         if (conv==6){
-            System.out.println(temp + " degré Farenheit est égal à "+ c.FarenheitVersKelvin(temp)+" degré Kelvin");
+            System.out.println(temp + " degré Farenheit est égal à "+ c.FarenheitVersKelvin(temp)+" degré Kelvin"+"\n"+ c.toString());
         }
     }
 }
