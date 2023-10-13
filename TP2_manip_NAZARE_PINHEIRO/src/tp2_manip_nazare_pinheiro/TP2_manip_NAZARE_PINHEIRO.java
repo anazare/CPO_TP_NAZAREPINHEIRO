@@ -34,7 +34,7 @@ public class TP2_manip_NAZARE_PINHEIRO {
         //Moussaka assiette667 = new Tartiflette;
         
         String [ ] monTableau = new String[10];
-        Moussaka=
+        Moussaka[0]= prem;
         
     }
     
