@@ -30,6 +30,19 @@ public class TP3_Heroic_Fantasy_NAZARE_PINHEIRO {
         tab.add(charme);
         //System.out.println(tab);
         
+        for (int i=0; i<tab.size(); i++){
+            String a = tab.get(i).nom;
+            int b = tab.get(i).niveauAttaque;
+            System.out.println(a + ", "+ b);
+            if (tab.get(i).getClass()==Epee.class){
+                int c = 1; //tab.get(i).indice;
+                //int c = tab.get(i).indice; //ne fonctionne pas : les attribus de la sous classe ne sont pas reconnus
+                System.out.println(", "+ c);
+            } if (tab.get(i).getClass()==Baton.class){
+                int d = 2; //tab.get(i).age;
+                System.out.println(", "+ d);
+            }
+        }
         
     }
     
