@@ -92,6 +92,7 @@ public class TP3_Heroic_Fantasy_NAZARE_PINHEIRO {
         hp.ajouterArme(charme);
         hp.ajouterArme(excalibur);
         System.out.println(hp.EquiperPerso(baguette));
+        System.out.println(hp.NbArmesDePredilection(hp));
         
         
     }

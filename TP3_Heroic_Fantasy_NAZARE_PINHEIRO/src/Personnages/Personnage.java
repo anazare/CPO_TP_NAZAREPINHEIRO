@@ -5,6 +5,8 @@
 package Personnages;
 
 import Armes.Arme;
+import Armes.Baton;
+import Armes.Epee;
 import java.util.ArrayList;
 
 /**
@@ -37,10 +39,8 @@ public abstract class Personnage {
     public String lireNom() {
         return nom;
     }
-    
-    
+   
     ArrayList<Arme> listeArmesDuPerso = new ArrayList<>();
-    // voir quel est le problème avec le prof, les armes ne s'ajoutent pas
     
     public void ajouterArme(Arme arme){
         if (listeArmesDuPerso.size()<=5){
@@ -64,9 +64,23 @@ public abstract class Personnage {
         } else {
             return "Action impossible, votre personnage ne possède pas cette arme.";
         }
-        
     }
     
-    
-    
+    public int NbArmesDePredilection(Personnage perso){
+        int nb=0;
+        if (perso.getClass()==Magicien.class){
+            for (int j = 0; j<listeArmesDuPerso.size(); j++ ){
+                if (listeArmesDuPerso.get(j) instanceof Baton){
+                        nb++;
+                    }
+            }
+        } else {
+            for (int k = 0; k<listeArmesDuPerso.size(); k++ ){
+                if (listeArmesDuPerso.get(k) instanceof Epee){
+                    nb++;   
+                }
+            }
+        }
+        return nb;
+    }
 }
