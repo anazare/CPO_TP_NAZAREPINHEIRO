@@ -81,17 +81,17 @@ public class TP3_Heroic_Fantasy_NAZARE_PINHEIRO {
         
         Baton chene = new Baton("Chêne", 4,5);
         Baton charme = new Baton("Charme", 5,6);
-        Baton baguette = new Baton("Baguette de Sureau", 7, 100);
+        Baton baguette = new Baton("Baguette de Sureau", 7, 90);
         
         jace.ajouterArme(durandal);
         jace.ajouterArme(cortana);
         jace.ajouterArme(chene);
-        jace.EquiperPerso(cortana);
+        System.out.println(jace.EquiperPerso("Cortana"));
         
         hp.ajouterArme(baguette);
         hp.ajouterArme(charme);
         hp.ajouterArme(excalibur);
-        hp.EquiperPerso(baguette);
+        System.out.println(hp.EquiperPerso("Baguette de Sureau"));
         
         
     }

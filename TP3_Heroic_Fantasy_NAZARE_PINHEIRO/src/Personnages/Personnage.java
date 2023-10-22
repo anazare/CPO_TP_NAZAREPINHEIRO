@@ -60,7 +60,10 @@ public abstract class Personnage {
             Arme_en_main=listeArmesDuPerso.get(i);
         
             return "Votre personnage porte cette arme : "+ Arme_en_main;
+        } else {
+            return "Action impossible, votre personnage ne possède pas cette arme.";
         }
+        
     }
     
     
