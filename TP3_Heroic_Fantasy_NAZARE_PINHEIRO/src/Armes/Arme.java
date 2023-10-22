@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package tp3_heroic_fantasy_nazare_pinheiro;
+package Armes;
 
 /**
  *
@@ -20,7 +20,6 @@ public abstract class Arme {
             System.out.println("le niveau d'attaque doit être inférieur à 100");
             this.niveauAttaque = 0;
         }
-        
     }
     
     public int visualiserNiveauAttaque(){
