@@ -86,12 +86,12 @@ public class TP3_Heroic_Fantasy_NAZARE_PINHEIRO {
         jace.ajouterArme(durandal);
         jace.ajouterArme(cortana);
         jace.ajouterArme(chene);
-        System.out.println(jace.EquiperPerso("Cortana"));
+        System.out.println(jace.EquiperPerso(cortana));
         
         hp.ajouterArme(baguette);
         hp.ajouterArme(charme);
         hp.ajouterArme(excalibur);
-        System.out.println(hp.EquiperPerso("Baguette de Sureau"));
+        System.out.println(hp.EquiperPerso(baguette));
         
         
     }

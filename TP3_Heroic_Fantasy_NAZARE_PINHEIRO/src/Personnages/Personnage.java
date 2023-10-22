@@ -40,10 +40,11 @@ public abstract class Personnage {
     
     
     ArrayList<Arme> listeArmesDuPerso = new ArrayList<>();
+    // voir quel est le problème avec le prof, les armes ne s'ajoutent pas
     
-    public void ajouterArme(Arme a){
+    public void ajouterArme(Arme arme){
         if (listeArmesDuPerso.size()<=5){
-            listeArmesDuPerso.add(a);
+            listeArmesDuPerso.add(arme);
         }
     }
     
@@ -51,10 +52,10 @@ public abstract class Personnage {
         return Arme_en_main;
     }
     
-    public String EquiperPerso(String nomArme){
-        if (listeArmesDuPerso.contains(nomArme)) {
+    public String EquiperPerso(Arme arme){
+        if (listeArmesDuPerso.contains(arme)) {
             int i=0;
-            while (nomArme != listeArmesDuPerso.get(i).visualiserNom()){
+            while (arme != listeArmesDuPerso.get(i)){
                 i++;
             }
             Arme_en_main=listeArmesDuPerso.get(i);
