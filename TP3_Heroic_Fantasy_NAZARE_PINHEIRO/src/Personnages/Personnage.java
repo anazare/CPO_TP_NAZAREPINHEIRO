@@ -60,27 +60,32 @@ public abstract class Personnage {
             }
             Arme_en_main=listeArmesDuPerso.get(i);
         
-            return "Votre personnage porte cette arme : "+ Arme_en_main;
+            return this.nom +" porte cette arme : "+ Arme_en_main;
         } else {
             return "Action impossible, votre personnage ne possède pas cette arme.";
         }
     }
     
-    public int NbArmesDePredilection(Personnage perso){
+    public String NbArmesDePredilection(Personnage perso){
         int nb=0;
-        if (perso.getClass()==Magicien.class){
+        if (perso instanceof Magicien){
             for (int j = 0; j<listeArmesDuPerso.size(); j++ ){
                 if (listeArmesDuPerso.get(j) instanceof Baton){
                         nb++;
                     }
             }
-        } else {
+        } if (perso instanceof Guerrier) {
             for (int k = 0; k<listeArmesDuPerso.size(); k++ ){
                 if (listeArmesDuPerso.get(k) instanceof Epee){
                     nb++;   
                 }
             }
         }
-        return nb;
+        return this.nom + " posede "+nb+" armes de predilection";
     }
+    
+    
+    
+    
+    
 }
