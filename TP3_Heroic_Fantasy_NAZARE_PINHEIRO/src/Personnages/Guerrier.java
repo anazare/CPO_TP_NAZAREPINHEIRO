@@ -10,10 +10,17 @@ package Personnages;
  */
 public class Guerrier extends Personnage {
     String aCheval;
+    static int nb_guerriers;
 
     public Guerrier( String nom, int niveau_de_vie, String aCheval) {
         super(nom, niveau_de_vie);
         this.aCheval = aCheval;
+        nb_guerriers++;
+    }
+    
+    @Override
+    public void finalize(){
+        nb_guerriers--;
     }
     
     public boolean confirmé(){

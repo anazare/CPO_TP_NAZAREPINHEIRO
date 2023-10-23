@@ -12,8 +12,6 @@ public abstract class Arme {
     String nom; 
     int niveauAttaque;
     
-
-
     public Arme(String nom, int niveauAttaque) {
         this.nom = nom;
         if (niveauAttaque<100){

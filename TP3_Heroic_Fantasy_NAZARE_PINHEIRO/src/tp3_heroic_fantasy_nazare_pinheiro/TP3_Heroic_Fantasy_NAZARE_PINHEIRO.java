@@ -75,6 +75,7 @@ public class TP3_Heroic_Fantasy_NAZARE_PINHEIRO {
         Magicien hp = new Magicien("Harry Potter", 55, "novice");
         Guerrier jace = new Guerrier("Jace", 60, "à cheval");
         
+        
         Epee excalibur = new Epee("Excalibur", 7, 5);
         Epee durandal = new Epee("Durandal", 4,7);
         Epee cortana = new Epee("Cortana",5,6);
@@ -87,13 +88,15 @@ public class TP3_Heroic_Fantasy_NAZARE_PINHEIRO {
         jace.ajouterArme(cortana);
         jace.ajouterArme(chene);
         System.out.println(jace.EquiperPerso(cortana));
-        System.out.println(hp.NbArmesDePredilection(jace));
+        System.out.println(jace.NbArmesDePredilection());
         
         hp.ajouterArme(baguette);
         hp.ajouterArme(charme);
         hp.ajouterArme(excalibur);
         System.out.println(hp.EquiperPerso(baguette));
-        System.out.println(hp.NbArmesDePredilection(hp));
+        System.out.println(hp.NbArmesDePredilection());
+        
+        System.out.println(Personnage.nb_perso);
         
         
     }
