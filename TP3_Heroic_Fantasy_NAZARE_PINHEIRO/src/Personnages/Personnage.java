@@ -102,6 +102,14 @@ public abstract class Personnage implements etreVivant {
     }
     
     public boolean estVivant(){
+        if (niveau_de_vie<0){
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
+    public void estAttaqué(int points){
         
     }
     
