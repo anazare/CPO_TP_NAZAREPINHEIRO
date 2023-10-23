@@ -8,19 +8,28 @@ import Armes.Arme;
 import Armes.Baton;
 import Armes.Epee;
 import java.util.ArrayList;
+import java.util.logging.Logger;
+import tp3_heroic_fantasy_nazare_pinheiro.etreVivant;
 
 /**
  *
  * @author anaza
  */
-public abstract class Personnage {
+public abstract class Personnage implements etreVivant {
     String nom;
     int niveau_de_vie;
     Arme Arme_en_main = null;
-
+    public static int nb_perso;
+    
+    
+    public void nb_personnages(){
+        nb_perso = Magicien.nb_magiciens + Guerrier.nb_guerriers;
+    }
+    
     public Personnage(String nom, int niveau_de_vie) {
         this.nom = nom;
         this.niveau_de_vie = niveau_de_vie;
+        nb_perso++;
     }
     
     public int lireNiveauVie() {
@@ -40,7 +49,7 @@ public abstract class Personnage {
         return nom;
     }
    
-    ArrayList<Arme> listeArmesDuPerso = new ArrayList<>();
+    ArrayList<Arme> listeArmesDuPerso = new ArrayList<Arme>();
     
     public void ajouterArme(Arme arme){
         if (listeArmesDuPerso.size()<=5){
@@ -66,15 +75,15 @@ public abstract class Personnage {
         }
     }
     
-    public String NbArmesDePredilection(Personnage perso){
+    public String NbArmesDePredilection(){
         int nb=0;
-        if (perso instanceof Magicien){
+        if (this instanceof Magicien){
             for (int j = 0; j<listeArmesDuPerso.size(); j++ ){
                 if (listeArmesDuPerso.get(j) instanceof Baton){
                         nb++;
                     }
             }
-        } if (perso instanceof Guerrier) {
+        } if (this instanceof Guerrier) {
             for (int k = 0; k<listeArmesDuPerso.size(); k++ ){
                 if (listeArmesDuPerso.get(k) instanceof Epee){
                     nb++;   
@@ -84,8 +93,17 @@ public abstract class Personnage {
         return this.nom + " posede "+nb+" armes de predilection";
     }
     
+    public void finalize(){
+        nb_perso--;
+    }
     
+    public void seFatiguer(){
+        niveau_de_vie = niveau_de_vie-10;
+    }
     
+    public boolean estVivant(){
+        
+    }
     
     
 }
