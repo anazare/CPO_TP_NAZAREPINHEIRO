@@ -52,7 +52,7 @@ public abstract class Personnage implements etreVivant {
     ArrayList<Arme> listeArmesDuPerso = new ArrayList<Arme>();
     
     public void ajouterArme(Arme arme){
-        if (listeArmesDuPerso.size()<=5){
+        if (listeArmesDuPerso.size()<5){
             listeArmesDuPerso.add(arme);
         }
     }
