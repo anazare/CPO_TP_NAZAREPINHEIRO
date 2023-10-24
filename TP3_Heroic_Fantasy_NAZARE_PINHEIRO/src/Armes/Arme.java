@@ -10,7 +10,7 @@ package Armes;
  */
 public abstract class Arme {
     String nom; 
-    int niveauAttaque;
+    public int niveauAttaque;
     
     public Arme(String nom, int niveauAttaque) {
         this.nom = nom;
@@ -34,6 +34,7 @@ public abstract class Arme {
     public String toString() {
         return "Arme{" + "nom=" + nom + ", niveauAttaque=" + niveauAttaque + '}';
     }
+
     
     
 }

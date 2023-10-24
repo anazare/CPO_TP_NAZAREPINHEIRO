@@ -110,8 +110,30 @@ public abstract class Personnage implements etreVivant {
     }
     
     public void estAttaqué(int points){
-        
+        niveau_de_vie=niveau_de_vie-points;
     }
+    
+    public void Attaquer(Personnage perso){
+        if (this instanceof Magicien){
+            if (this.Arme_en_main instanceof Baton){
+                if (((Guerrier)perso).aCheval=="oui"){
+                    perso.estAttaqué(Arme_en_main.niveauAttaque * ((Baton)Arme_en_main).age /2);
+                } else {
+                    perso.estAttaqué(Arme_en_main.niveauAttaque * ((Baton)Arme_en_main).age);
+                }
+            }
+        } if (this instanceof Guerrier){
+            if (this.Arme_en_main instanceof Epee){
+                if (((Magicien)perso).confirmé() == true){
+                    perso.estAttaqué(Arme_en_main.niveauAttaque * ((Epee)Arme_en_main).indice /2);
+                } else {
+                    perso.estAttaqué(Arme_en_main.niveauAttaque * ((Epee)Arme_en_main).indice);
+                }
+            }
+        }
+        this.seFatiguer();
+    }
+    
     
     
 }

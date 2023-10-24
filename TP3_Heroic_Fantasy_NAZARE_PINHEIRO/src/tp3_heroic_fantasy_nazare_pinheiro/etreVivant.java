@@ -10,11 +10,8 @@ package tp3_heroic_fantasy_nazare_pinheiro;
  */
 public interface etreVivant {
     
-    public void seFatiguer(){
-    }
-    public boolean estVivant(){
-    }
-    public void estAttaqué(int points){
-    }
+    public void seFatiguer();
+    public boolean estVivant();
+    public void estAttaqué(int points);
     
 }

@@ -72,6 +72,7 @@ public class TP3_Heroic_Fantasy_NAZARE_PINHEIRO {
         System.out.println(tabPerso);
         */
         
+        /* 
         Magicien hp = new Magicien("Harry Potter", 55, "novice");
         Guerrier jace = new Guerrier("Jace", 60, "à cheval");
         
@@ -98,8 +99,43 @@ public class TP3_Heroic_Fantasy_NAZARE_PINHEIRO {
         
         System.out.println(Personnage.nb_perso);
         
+        System.out.println(jace);
+        jace.seFatiguer();
+        System.out.println(jace);
+        System.out.println("Jace est vivant : "+ jace.estVivant());
+        jace.Attaquer(hp);
+        System.out.println(jace);
+        System.out.println(hp);
+        System.out.println("Harry Potter est vivant : "+ hp.estVivant());
+        */
         
+        // Partie 5.4
+        
+        Epee excalibur = new Epee("Excalibur", 7, 5);
+        Epee durandal = new Epee("Durandal", 4,7);
+        Baton chene = new Baton("Chêne", 4,5);
+        Baton charme = new Baton("Charme", 5,6);
+        
+        Magicien hp = new Magicien("Harry Potter", 55, "novice");
+        Guerrier jace = new Guerrier("Jace", 60, "à cheval");
+        
+        System.out.println(jace);
+        System.out.println(hp);
+        
+        jace.ajouterArme(durandal);
+        jace.EquiperPerso(durandal);
+        hp.ajouterArme(chene );
+        hp.EquiperPerso(chene);
+        
+        jace.Attaquer(hp);
+        System.out.println(jace);
+        System.out.println(hp);
+        
+        hp.Attaquer(jace);
+        System.out.println(jace);
+        System.out.println(hp);
+        
+        System.out.println("Jace est vivant : "+ jace.estVivant());
+        System.out.println("Harry Potter est vivant : "+ hp.estVivant());
     }
-    
-    
 }

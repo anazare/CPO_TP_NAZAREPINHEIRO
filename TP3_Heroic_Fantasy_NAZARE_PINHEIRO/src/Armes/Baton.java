@@ -9,7 +9,7 @@ package Armes;
  * @author anaza
  */
 public class Baton extends Arme {
-        int age;
+        public int age;
     
     public Baton(String nom, int niveauAttaque, int age){
         super(nom, niveauAttaque);
@@ -19,6 +19,10 @@ public class Baton extends Arme {
             System.out.println("erreur : l'age doit être inférieur à 100");
             this.age=0;
         }
+    }
+    
+    public int lireAge(){
+        return age;
     }
     
 }
