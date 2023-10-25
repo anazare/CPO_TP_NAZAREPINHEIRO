@@ -16,6 +16,7 @@ public class LightOff_NAZARE_PINHEIRO_version_console {
     public static void main(String[] args) {
         // TODO code application logic here
         
+        
     }
     
 }

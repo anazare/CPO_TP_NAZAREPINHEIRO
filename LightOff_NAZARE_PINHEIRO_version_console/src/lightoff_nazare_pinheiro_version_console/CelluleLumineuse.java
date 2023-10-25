@@ -11,10 +11,16 @@ package lightoff_nazare_pinheiro_version_console;
 public class CelluleLumineuse {
     private boolean etat;
 
+    /**
+     *construit une cellule lumineuse qui est initialement à l'état éteint
+     */
     public CelluleLumineuse() {
         this.etat = false;
     }
     
+    /**
+     *inverse l'état de la cellule (cellule éteinte ou allumée)
+     */
     public void activerCellule(){
         if (etat==true){
             etat=false;
@@ -23,12 +29,19 @@ public class CelluleLumineuse {
         }
     }
     
+    /**
+     * éteint la cellule lumineuse 
+     */
     public void eteindreCellule(){
         if (etat==true){
             etat=false;
         }
     }
     
+    /**
+     *vérifie si la cellule est éteinte 
+     * @return - boolen (true: éteinte, false: alumée)
+     */
     public boolean estEteint(){
         if (etat==false){
             return true; 
