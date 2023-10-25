@@ -9,5 +9,26 @@ package lightoff_nazare_pinheiro_version_console;
  * @author anaza
  */
 public class Partie {
+    GrilleDeJeu grille;
+    int nbcoups;
+
+    public Partie(GrilleDeJeu grille) {
+        this.grille = grille;
+        nbcoups++;
+    }
+    
+    public void initialiserPartie(){
+        this.grille.melangerMatriceAleatoirement(10);
+    }
+    
+    public GrilleDeJeu lancerPartie (){
+        System.out.println(grille);
+        while (grille.cellulesToutesEteintes()!=true){
+            
+        }
+        return grille;
+    }
+    
+    
     
 }

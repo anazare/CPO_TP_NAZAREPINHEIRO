@@ -15,8 +15,9 @@ public class LightOff_NAZARE_PINHEIRO_version_console {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
-        
+        GrilleDeJeu grille = new GrilleDeJeu(3,3);
+        grille.melangerMatriceAleatoirement(5);
+        System.out.println(grille);
     }
     
 }

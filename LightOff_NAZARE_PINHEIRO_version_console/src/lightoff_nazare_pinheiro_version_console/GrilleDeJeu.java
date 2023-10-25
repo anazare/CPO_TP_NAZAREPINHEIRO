@@ -17,12 +17,12 @@ public class GrilleDeJeu {
     CelluleLumineuse[][] matriceCellules;
 
     /**
-     * crÃ©e une grille de jeu a x lignes et y colonnes 
+     * crée une grille de jeu de x lignes et y colonnes 
      * @param p_nbLignes nombre de lignes 
      * @param p_nbColonnes nombre de colonnes 
      * @return Grille de jeu 
      */
-    public CelluleLumineuse[][] GrilleDeJeu(int p_nbLignes, int p_nbColonnes) {
+    public GrilleDeJeu(int p_nbLignes, int p_nbColonnes) {
         this.nbLignes = p_nbLignes;
         this.nbColonnes = p_nbColonnes;
         matriceCellules = new CelluleLumineuse[nbLignes][nbColonnes];
@@ -31,11 +31,10 @@ public class GrilleDeJeu {
                 matriceCellules[i][j] = new CelluleLumineuse();
             }
         }
-        return matriceCellules;
     }
     
     /**
-     *Ã©teint toutes les cellules de la grille de jeu 
+     *éteint toutes les cellules de la grille de jeu 
      */
     public void eteindreToutesLesCellules(){
         for (int i=0; i<nbLignes; i++){
@@ -46,11 +45,12 @@ public class GrilleDeJeu {
     }
     
     /**
-     *active de maniÃ¨re alÃ©atoire soit une ligne, soit une colonne, soit une diagonale de cellules dans la grille 
+     *active (inverse l'état actuel) de manière aléatoire soit une ligne, soit une colonne, 
+     * soit une diagonale de cellules dans la grille 
      */
-    public void activerLigneColonneouDiagonaleAlÃ©atoire(){
+    public void activerLigneColonneouDiagonaleAléatoire(){
         Random rd = new Random();
-        int choix_L_C_D = rd.nextInt(2);
+        int choix_L_C_D = rd.nextInt(3);
         if (choix_L_C_D == 0){
             //active la ligne i 
             int i = rd.nextInt(nbLignes-1);
@@ -63,7 +63,7 @@ public class GrilleDeJeu {
             for (int i=0; i<nbLignes; i++){
                 matriceCellules[i][j].activerCellule();
             }
-        } else {
+        } if (choix_L_C_D == 2){
             // active la diagonale descendante
             for (int i=0; i<nbLignes; i++){
                 for (int j=0; j<nbColonnes; j++ ){
@@ -72,10 +72,11 @@ public class GrilleDeJeu {
                     }
                 }
             }
+        } else {
             // active la diagonale montante
-            for (int i=nbLignes; i>0; i--){
+            for (int i=nbLignes-1; i>=0; i--){
                 for (int j=0; j<nbColonnes; j++ ){
-                    //cette condition ne fonctionne que pour les matrices carrÃ©es 
+                    //cette condition ne fonctionne que pour les matrices carrées 
                     if (i+j == nbColonnes+1){
                         matriceCellules[i][j].activerCellule();
                     }
@@ -85,14 +86,15 @@ public class GrilleDeJeu {
     }
     
     /**
-     *melange alÃ©atoirement les cellules de la grille de jeu : 
+     *melange aléatoirement les cellules de la grille de jeu : 
      * cette fonction eteint d'abord toutes les cellules 
-     * puis elle active alÃ©atoirement une ligne/colonne/diagonales 
+     * puis elle active aléatoirement une ligne/colonne/diagonales 
      * @param nbTours
      */
     public void melangerMatriceAleatoirement( int nbTours){
+        this.eteindreToutesLesCellules();
         for (int i=0; i<nbTours; i++){
-            this.activerLigneColonneouDiagonaleAlÃ©atoire();
+            this.activerLigneColonneouDiagonaleAléatoire();
         }
     }
     
@@ -104,9 +106,8 @@ public class GrilleDeJeu {
     }
     
     public void activerColonneDeCellules(int idColonne){
-        int j=idColonne;
         for (int i=0; i<nbLignes; i++ ){
-                matriceCellules[i][j].activerCellule();
+                matriceCellules[i][idColonne].activerCellule();
         }
     }
     
@@ -127,7 +128,7 @@ public class GrilleDeJeu {
     public void activerDiagonaleMontante(){
         for (int i=nbLignes; i>0; i--){
                 for (int j=0; j<nbColonnes; j++ ){
-                    //cette condition ne fonctionne que pour les matrices carrÃ©es 
+                    //cette condition ne fonctionne que pour les matrices carrées 
                     if (i+j == nbColonnes+1){
                         matriceCellules[i][j].activerCellule();
                     }
@@ -153,17 +154,23 @@ public class GrilleDeJeu {
 
     @Override
     public String toString() {
-        //crÃ©er des string que j'ajoute pour retourner la valeur 
+        //créer des string que j'ajoute pour retourner la valeur 
+        String a="";
+        String b=""; 
+        String c="";
         for (int j=0; j<nbColonnes; j++){
-            return j+" |";
+            a += j+" | ";
         }
-        for (int i=0; i>nbLignes; i++){
-            return "\n "+i;
+        for (int j=0; j<=nbColonnes; j++){
+                c+="----";
+            }
+        for (int i=0; i<nbLignes; i++){
+            b += "\n"+c+"\n "+i+" | ";
             for (int j=0; j<nbColonnes; j++){
-                return CelluleLumineuse);
+                b += this.matriceCellules[i][j]+" | ";
             }
         }
-        return "    | ";
+        return "   | "+a+b;
     }
     
     
