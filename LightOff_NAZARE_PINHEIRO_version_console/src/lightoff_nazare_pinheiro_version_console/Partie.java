@@ -38,7 +38,7 @@ public class Partie {
     public String lancerPartie (){
         System.out.println(grille);
         //affiche la grille à t0
-        while (grille.cellulesToutesEteintes() != true){
+        while (!grille.cellulesToutesEteintes()){
             //tant que la grille n'est pas completement éteinte le programme suivant tourne
             //on demande ensuite à l'utilisateur de choisir l'activation d'une ligne/colonne/diagonale 
             Scanner sc = new Scanner(System.in);
