@@ -16,6 +16,9 @@ public class LightOff_NAZARE_PINHEIRO_version_console {
     public static void main(String[] args) {
         // TODO code application logic here
         
+        /* TEST PRELIMINAIRES
+        
+        
         // test CelluleLumineuse
         CelluleLumineuse c = new CelluleLumineuse();
         System.out.println("état de la cellule c :"+c.getEtat());
@@ -76,7 +79,19 @@ public class LightOff_NAZARE_PINHEIRO_version_console {
         // initialisation fonctionne bien 
         
         partie.lancerPartie();
-        System.out.print(partie.lancerPartie());
+        System.out.print(partie.lancerPartie()); */
+        
+        
+        
+        //PROGRAMME INITIAL FONCTIONNEL
+        GrilleDeJeu grille = new GrilleDeJeu(5,5);
+        Partie partie = new Partie(grille);
+        partie.initialiserPartie();
+        partie.lancerPartie();
+        System.out.print(partie.lancerPartie()); 
+        
+        
+        
     }
         
 }
