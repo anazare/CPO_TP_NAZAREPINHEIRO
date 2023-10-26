@@ -50,7 +50,9 @@ public class GrilleDeJeu {
      */
     public void activerLigneColonneouDiagonaleAléatoire(){
         Random rd = new Random();
+        
         int choix_L_C_D = rd.nextInt(3);
+        //choisi aléatoirement une activation de Ligne/colonne/Diagonale
         if (choix_L_C_D == 0){
             //active la ligne i 
             int i = rd.nextInt(nbLignes-1);
@@ -66,21 +68,12 @@ public class GrilleDeJeu {
         } if (choix_L_C_D == 2){
             // active la diagonale descendante
             for (int i=0; i<nbLignes; i++){
-                for (int j=0; j<nbColonnes; j++ ){
-                    if (i==j){
-                        matriceCellules[i][j].activerCellule();
-                    }
+                matriceCellules[i][i].activerCellule();
                 }
-            }
         } else {
             // active la diagonale montante
-            for (int i=nbLignes-1; i>=0; i--){
-                for (int j=0; j<nbColonnes; j++ ){
-                    //cette condition ne fonctionne que pour les matrices carrées 
-                    if (i+j == nbColonnes+1){
-                        matriceCellules[i][j].activerCellule();
-                    }
-                }
+            for (int i=0; i<nbLignes ; i++){
+                matriceCellules[nbLignes-1-i][i].activerCellule();
             }
         }
     }
@@ -98,6 +91,10 @@ public class GrilleDeJeu {
         }
     }
     
+    /**
+     * Inverse l'état de chaque cellule de la ligne
+     * @param idLigne
+     */
     public void activerLigneDeCellules(int idLigne){
         int i=idLigne;
         for (int j=0; j<nbColonnes; j++ ){
@@ -105,42 +102,45 @@ public class GrilleDeJeu {
         }
     }
     
+    /**
+     *Inverse l'état de chaque cellule de la colonne
+     * @param idColonne
+     */
     public void activerColonneDeCellules(int idColonne){
         for (int i=0; i<nbLignes; i++ ){
                 matriceCellules[i][idColonne].activerCellule();
         }
     }
     
+    /**
+     *Inverse l'état de chaque cellule de la diagonale descendante
+     * attention ne fonctionne que pour une grille carrée
+     */
     public void activerDiagonaleDescendante(){
         for (int i=0; i<nbLignes; i++){
-                for (int j=0; j<nbColonnes; j++ ){
-                    if (i==j){
-                        matriceCellules[i][j].activerCellule();
-                    }
-                }
+            matriceCellules[i][i].activerCellule();
         }
     }
     
     /**
      * active les cellules lumineuses de la diagonale montante 
-     * attention : ne fonctionnne que sur une grille de jeu ayant le nombre 
+     * attention : ne fonctionnne que sur une grille de jeu ayant le même nombre de colonnes que de lignes
      */
     public void activerDiagonaleMontante(){
-        for (int i=nbLignes; i>0; i--){
-                for (int j=0; j<nbColonnes; j++ ){
-                    //cette condition ne fonctionne que pour les matrices carrées 
-                    if (i+j == nbColonnes+1){
-                        matriceCellules[i][j].activerCellule();
-                    }
-                }
+        for (int i=0; i<nbLignes ; i++){
+                matriceCellules[nbLignes-1-i][i].activerCellule();
             }
     }
     
+    /**
+     * vérifie si toutes les cellules sont éteintes 
+     * @return boolean 
+     */
     public boolean cellulesToutesEteintes(){
         int k=0;
         for (int i=0; i<nbLignes; i++){
             for (int j=0; j<nbColonnes; j++ ){
-                if(matriceCellules[i][j].estEteint()==false){
+                if (matriceCellules[i][j].estEteint()==false){
                     k+=1;
                 } 
             }
@@ -152,6 +152,10 @@ public class GrilleDeJeu {
         }
     }
 
+    /**
+     * affiche la grille de jeu 
+     * @return
+     */
     @Override
     public String toString() {
         //créer des string que j'ajoute pour retourner la valeur 
@@ -170,7 +174,7 @@ public class GrilleDeJeu {
                 b += this.matriceCellules[i][j]+" | ";
             }
         }
-        return "   | "+a+b;
+        return "   | "+a+b+"\n";
     }
     
     

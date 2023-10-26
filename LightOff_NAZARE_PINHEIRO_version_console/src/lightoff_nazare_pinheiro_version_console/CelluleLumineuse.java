@@ -12,14 +12,14 @@ public class CelluleLumineuse {
     private boolean etat;
 
     /**
-     *construit une cellule lumineuse qui est initialement à l'état éteint
+     *construit une cellule lumineuse qui est initialement a l'etat eteint
      */
     public CelluleLumineuse() {
         this.etat = false;
     }
     
     /**
-     *inverse l'état de la cellule (cellule éteinte ou allumée)
+     *inverse l'etat de la cellule (cellule eteinte ou allumee)
      */
     public void activerCellule(){
         if (etat==true){
@@ -30,7 +30,7 @@ public class CelluleLumineuse {
     }
     
     /**
-     * éteint la cellule lumineuse 
+     * eteint la cellule lumineuse 
      */
     public void eteindreCellule(){
         if (etat==true){
@@ -39,17 +39,21 @@ public class CelluleLumineuse {
     }
     
     /**
-     *vérifie si la cellule est éteinte 
-     * @return - boolen (true: éteinte, false: alumée)
+     *verifie si la cellule est eteinte 
+     * @return - boolen (true: eteinte, false: alumee)
      */
     public boolean estEteint(){
         if (etat==false){
             return true; 
-        } else{
+        } else {
             return false;
         }
     }
     
+    /**
+     * permet d'obtenir l'�tat de la cellule lumineuse 
+     * @return boolean
+     */
     public boolean getEtat(){
         if (etat==true){
             return true;
@@ -58,6 +62,10 @@ public class CelluleLumineuse {
         }
     }
 
+    /**
+     * affiche la cellule lumineuse 
+     * @return cellule lumineuse 
+     */
     @Override
     public String toString() {
         if (etat==true){
