@@ -40,21 +40,24 @@ public class Partie {
         //affiche la grille à t0
         while (!grille.cellulesToutesEteintes()){
             //tant que la grille n'est pas completement éteinte le programme suivant tourne
+            
             //on demande ensuite à l'utilisateur de choisir l'activation d'une ligne/colonne/diagonale 
             Scanner sc = new Scanner(System.in);
             System.out.println("Choisissez une action à réaliser : \n1) Activer une ligne\n2) Activer un colonne\n3) Activer la diagonale montante\n4) Activer la diagonale descendante");
             int choix_action =sc.nextInt(); 
+            
             //si l'utilisateur à choisi d'activer une ligne, on lui demande laquelle
             if (choix_action==1){
                 System.out.println("Choisissez une ligne à activer : ");
                 int id_ligne = sc.nextInt();
+                
                 //on modifie la ligne et on affiche la grille de jeu 
                 grille.activerLigneDeCellules(id_ligne);
                 System.out.println(grille);
                 nbcoups++;
             } 
             //si l'utilisateur choisi d'activer une colonne, on lui demande laquelle 
-            if (choix_action==2){
+            else if (choix_action==2){
                 System.out.println("Choisissez une colonne à activer : ");
                 int id_colonne = sc.nextInt();
                 //on modifie la colonne et on affiche la grille de jeu
@@ -63,7 +66,7 @@ public class Partie {
                 nbcoups++;
             } 
             //si l'utilisateur choisi de modifier la diagonale montante, on la modifie et on l'affiche. 
-            if (choix_action==3){
+            else if (choix_action==3){
                 grille.activerDiagonaleMontante();
                 System.out.println(grille);
                 nbcoups++;
@@ -73,9 +76,9 @@ public class Partie {
                 grille.activerDiagonaleDescendante();
                 System.out.println(grille);
                 nbcoups++;
-            }
+            } 
         }
-        return "Vous avez gagné la partie en "+nbcoups;
+        return "Vous avez gagné la partie en "+nbcoups+" coups. ";
     }
     
     

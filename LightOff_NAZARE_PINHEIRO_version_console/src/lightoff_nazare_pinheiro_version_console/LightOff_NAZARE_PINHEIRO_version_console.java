@@ -76,7 +76,8 @@ public class LightOff_NAZARE_PINHEIRO_version_console {
         // initialisation fonctionne bien 
         
         partie.lancerPartie();
-        // problemes au niveau de lancerPartie :  print de trop (peut être également dû au while). 
+        System.out.print(partie.lancerPartie());
+        // problemes au niveau de lancerPartie : pas de return ? + print de trop. 
     }
         
 }
