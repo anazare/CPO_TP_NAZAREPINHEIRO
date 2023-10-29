@@ -43,39 +43,41 @@ public class Partie {
             
             //on demande ensuite à l'utilisateur de choisir l'activation d'une ligne/colonne/diagonale 
             Scanner sc = new Scanner(System.in);
-            System.out.println("Choisissez une action à réaliser : \n1) Activer une ligne\n2) Activer un colonne\n3) Activer la diagonale montante\n4) Activer la diagonale descendante");
+            System.out.println("Choisissez une action à réaliser : \n1) Activer une ligne\n2) Activer une colonne\n3) Activer une diagonale montante\n4) Activer une diagonale descendante");
             int choix_action =sc.nextInt(); 
             
             //si l'utilisateur à choisi d'activer une ligne, on lui demande laquelle
-            if (choix_action==1){
-                System.out.println("Choisissez une ligne à activer : ");
-                int id_ligne = sc.nextInt();
-                
-                //on modifie la ligne et on affiche la grille de jeu 
-                grille.activerLigneDeCellules(id_ligne);
-                System.out.println(grille);
-                nbcoups++;
-            } 
-            //si l'utilisateur choisi d'activer une colonne, on lui demande laquelle 
-            else if (choix_action==2){
-                System.out.println("Choisissez une colonne à activer : ");
-                int id_colonne = sc.nextInt();
-                //on modifie la colonne et on affiche la grille de jeu
-                grille.activerColonneDeCellules(id_colonne);
-                System.out.println(grille);
-                nbcoups++;
-            } 
-            //si l'utilisateur choisi de modifier la diagonale montante, on la modifie et on l'affiche. 
-            else if (choix_action==3){
-                grille.activerDiagonaleMontante();
-                System.out.println(grille);
-                nbcoups++;
-            } 
-            //si l'utilisateur choisi de modifier la diagonale descendante , on la modifie et on l'affiche. 
-            else {
-                grille.activerDiagonaleDescendante();
-                System.out.println(grille);
-                nbcoups++;
+            switch (choix_action) {
+                case 1:
+                    System.out.println("Choisissez une ligne à activer : ");
+                    int id_ligne = sc.nextInt();
+                    //on modifie la ligne et on affiche la grille de jeu
+                    grille.activerLigneDeCellules(id_ligne);
+                    System.out.println(grille);
+                    nbcoups++;
+                    break;
+                case 2:
+                    System.out.println("Choisissez une colonne à activer : ");
+                    int id_colonne = sc.nextInt();
+                    //on modifie la colonne et on affiche la grille de jeu
+                    grille.activerColonneDeCellules(id_colonne);
+                    System.out.println(grille);
+                    nbcoups++;
+                    break;
+                case 3:
+                    System.out.println("Choisissez la diagonale montante à activer : ");
+                    int id_diagM = sc.nextInt();
+                    grille.activerDiagonaleMontante(id_diagM);
+                    System.out.println(grille);
+                    nbcoups++;
+                    break;
+                case 4:
+                    System.out.println("Choisissez la diagonale descendante à activer : ");
+                    int id_diagD = sc.nextInt();
+                    grille.activerDiagonaleDescendante(id_diagD);
+                    System.out.println(grille);
+                    nbcoups++;
+                    break;
             } 
         }
         return "Vous avez gagné la partie en "+nbcoups+" coups. ";

@@ -16,8 +16,7 @@ public class LightOff_NAZARE_PINHEIRO_version_console {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        /* TEST PRELIMINAIRES
-        
+        /* TESTS PRELIMINAIRES
         
         // test CelluleLumineuse
         CelluleLumineuse c = new CelluleLumineuse();
@@ -82,16 +81,37 @@ public class LightOff_NAZARE_PINHEIRO_version_console {
         System.out.print(partie.lancerPartie()); */
         
         
-        
+        /*
         //PROGRAMME INITIAL FONCTIONNEL
-        GrilleDeJeu grille = new GrilleDeJeu(5,5);
+        
+        GrilleDeJeu grille = new GrilleDeJeu(10,10);
         Partie partie = new Partie(grille);
         partie.initialiserPartie();
         partie.lancerPartie();
         System.out.print(partie.lancerPartie()); 
+        */
         
+        // TEST AMELIORATIONS 
         
+        /*// TEST GRILLE NON CARREE
+        GrilleDeJeu grille = new GrilleDeJeu(4,4);
+        //System.out.println(grille);
         
+        grille.activerDiagonaleDescendante(3);
+        System.out.println(grille);
+        //test fonctionnel de activerDiagonaleDescendante().
+        
+        grille.activerDiagonaleMontante(5);
+        System.out.println(grille);
+        //test fonctionnel de activerDiagonaleMontante().*/
+        
+        //TEST PROGRAMME AVEC AMELIORATION : MATRICE NON CARREE
+        
+        GrilleDeJeu grille = new GrilleDeJeu(3,3);
+        Partie partie = new Partie(grille);
+        partie.initialiserPartie();
+        partie.lancerPartie();
+        System.out.print(partie.lancerPartie()); 
     }
         
 }

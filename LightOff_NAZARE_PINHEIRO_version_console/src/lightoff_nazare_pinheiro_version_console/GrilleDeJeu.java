@@ -66,17 +66,24 @@ public class GrilleDeJeu {
                 matriceCellules[i][j].activerCellule();
             }
         } if (choix_L_C_D == 2){
-            // active la diagonale descendante
-            for (int i=0; i<nbLignes; i++){
-                matriceCellules[i][i].activerCellule();
+            // active une diagonale descendante aléatoire
+            int IdColonneD = rd.nextInt(nbColonnes-1);
+            for (int i=0; i<Math.min(nbColonnes,nbLignes); i++){
+                if (i+IdColonneD<nbColonnes){
+                    matriceCellules[i][i+IdColonneD].activerCellule();
                 }
+            }
         } else {
-            // active la diagonale montante
-            for (int i=0; i<nbLignes ; i++){
-                matriceCellules[nbLignes-1-i][i].activerCellule();
+            // active une diagonale montante aléatoire
+            int idColonneM = rd.nextInt(nbColonnes-1);
+            for (int i = 0; i < Math.min(nbColonnes,nbLignes) ;i++ ){
+                if (idColonneM-i>=0){
+                    matriceCellules[i][idColonneM-i].activerCellule();
+                }
             }
         }
     }
+    
     
     /**
      *melange aléatoirement les cellules de la grille de jeu : 
@@ -115,21 +122,27 @@ public class GrilleDeJeu {
     /**
      *Inverse l'état de chaque cellule de la diagonale descendante
      * attention ne fonctionne que pour une grille carrée
+     * @param IdColonneD
      */
-    public void activerDiagonaleDescendante(){
-        for (int i=0; i<nbLignes; i++){
-            matriceCellules[i][i].activerCellule();
+    public void activerDiagonaleDescendante(int IdColonneD){
+        for (int i=0; i<Math.min(nbColonnes,nbLignes); i++){
+            if (i+IdColonneD<nbColonnes){
+                matriceCellules[i][i+IdColonneD].activerCellule();
+            }
         }
     }
     
     /**
      * active les cellules lumineuses de la diagonale montante 
      * attention : ne fonctionnne que sur une grille de jeu ayant le même nombre de colonnes que de lignes
+     * @param idColonneM
      */
-    public void activerDiagonaleMontante(){
-        for (int i=0; i<nbLignes ; i++){
-                matriceCellules[nbLignes-1-i][i].activerCellule();
+    public void activerDiagonaleMontante(int idColonneM){
+        for (int i = 0; i < Math.min(nbColonnes,nbLignes) ;i++ ){
+            if (idColonneM-i>=0){
+                matriceCellules[i][idColonneM-i].activerCellule();
             }
+        }
     }
     
     /**
@@ -174,7 +187,7 @@ public class GrilleDeJeu {
                 b += this.matriceCellules[i][j]+" | ";
             }
         }
-        return "   | "+a+b+"\n";
+        return "   | "+a+b+"\n"+c+"\n";
     }
     
     
