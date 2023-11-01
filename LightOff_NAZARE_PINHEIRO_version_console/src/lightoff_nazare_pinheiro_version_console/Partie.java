@@ -7,7 +7,7 @@ package lightoff_nazare_pinheiro_version_console;
 import java.util.Scanner;
 
 /**
- *
+ * 
  * @author anaza
  */
 public class Partie {
@@ -98,13 +98,17 @@ public class Partie {
         return "Vous avez gagné la partie en "+nbcoups+" coups. ";
     }
     
+    /**
+     * Lance une partie de difficulté moyenne (le nombre de coups est inférieur à 11)
+     * @return message de victoire
+     */
     public String lancerPartieMoyenne (){ 
         System.out.println(grille); //affiche la grille à t0 
         while (!grille.cellulesToutesEteintes() && nbcoups <= 10){ //tant que la grille n'est pas completement éteinte et le nombre de coups est inférieur ou égal à 10 le programme suivant tourne
             nbcoups++; // on implémente le nb de coups joués
             //on demande ensuite à l'utilisateur de choisir l'activation d'une ligne/colonne/diagonale 
             Scanner sc = new Scanner(System.in); 
-            System.out.println("Choisissez une action à réaliser : \n1) Activer une ligne \n) Activer une colonne \n3) Activer une diagonale montante \n4) Activer une diagonale descendante"); 
+            System.out.println("Choisissez une action à réaliser : \n1) Activer une ligne \n2) Activer une colonne \n3) Activer une diagonale montante \n4) Activer une diagonale descendante"); 
             int choix_action =sc.nextInt();
             //si l'utilisateur à choisi d'activer une ligne, on lui demande laquelle 
             switch (choix_action) { 
