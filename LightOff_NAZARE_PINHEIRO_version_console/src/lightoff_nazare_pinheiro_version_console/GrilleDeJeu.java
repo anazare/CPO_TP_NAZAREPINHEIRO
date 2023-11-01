@@ -4,7 +4,6 @@
  */
 package lightoff_nazare_pinheiro_version_console;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -20,7 +19,6 @@ public class GrilleDeJeu {
      * crée une grille de jeu de x lignes et y colonnes 
      * @param p_nbLignes nombre de lignes 
      * @param p_nbColonnes nombre de colonnes 
-     * @return Grille de jeu 
      */
     public GrilleDeJeu(int p_nbLignes, int p_nbColonnes) {
         this.nbLignes = p_nbLignes;
@@ -66,19 +64,39 @@ public class GrilleDeJeu {
                 matriceCellules[i][j].activerCellule();
             }
         } if (choix_L_C_D == 2){
-            // active une diagonale descendante aléatoire
+            // active une diagonale inf ou sup descendante aléatoire
+            Boolean sup = rd.nextBoolean();
             int IdColonneD = rd.nextInt(nbColonnes-1);
-            for (int i=0; i<Math.min(nbColonnes,nbLignes); i++){
-                if (i+IdColonneD<nbColonnes){
-                    matriceCellules[i][i+IdColonneD].activerCellule();
+            if (sup==false){
+                for (int i=0; i<Math.min(nbColonnes,nbLignes); i++){
+                    if (i+IdColonneD<nbColonnes){
+                        matriceCellules[i][i+IdColonneD].activerCellule();
+                    }
+                }
+            } else {
+                for (int i=0; i<Math.min(nbColonnes,nbLignes); i++){
+                    if (IdColonneD-i>=0){
+                        matriceCellules[nbLignes-1-i][IdColonneD-i].activerCellule();
+                    }
                 }
             }
-        } else {
-            // active une diagonale montante aléatoire
+        }
+            
+        else {
+            // active une diagonale inf ou sup montante aléatoire
             int idColonneM = rd.nextInt(nbColonnes-1);
-            for (int i = 0; i < Math.min(nbColonnes,nbLignes) ;i++ ){
-                if (idColonneM-i>=0){
-                    matriceCellules[i][idColonneM-i].activerCellule();
+            Boolean sup = rd.nextBoolean();
+            if (sup==true){
+                for (int i = 0; i < Math.min(nbColonnes,nbLignes) ;i++ ){
+                    if (idColonneM-i>=0){
+                        matriceCellules[i][idColonneM-i].activerCellule();
+                    }
+                }
+            } else {
+                for (int i = 0; i < Math.min(nbColonnes,nbLignes) ;i++ ){
+                    if (idColonneM+i<nbColonnes){
+                        matriceCellules[nbLignes-1-i][idColonneM+i].activerCellule();
+                    }
                 }
             }
         }
@@ -120,27 +138,45 @@ public class GrilleDeJeu {
     }
     
     /**
-     *Inverse l'état de chaque cellule de la diagonale descendante
-     * attention ne fonctionne que pour une grille carrée
+     *Inverse l'état de chaque cellule de la diagonale descendante choisie.
+     * Pour pouvoir parcourir toutes les diagonales, la matrice doit avoir au maximum (nbColonnes+1) lignes.
      * @param IdColonneD
+     * @param Sup
      */
-    public void activerDiagonaleDescendante(int IdColonneD){
-        for (int i=0; i<Math.min(nbColonnes,nbLignes); i++){
-            if (i+IdColonneD<nbColonnes){
-                matriceCellules[i][i+IdColonneD].activerCellule();
+    public void activerDiagonaleDescendante(int IdColonneD, String Sup){
+        if (!"oui".equals(Sup)){
+            for (int i=0; i<Math.min(nbColonnes,nbLignes); i++){
+                if (IdColonneD-i>=0){
+                    matriceCellules[nbLignes-1-i][IdColonneD-i].activerCellule();
+                }
+            }
+        } else {
+            for (int i=0; i<Math.min(nbColonnes,nbLignes); i++){
+                if (i+IdColonneD<nbColonnes){
+                    matriceCellules[i][i+IdColonneD].activerCellule();
+                }
             }
         }
     }
     
     /**
-     * active les cellules lumineuses de la diagonale montante 
-     * attention : ne fonctionnne que sur une grille de jeu ayant le même nombre de colonnes que de lignes
+     * active les cellules lumineuses de la diagonale montante supérieure ou inférieure choisie.
+     * Pour pouvoir parcourir toutes les diagonales, la matrice doit avoir au maximum (nbColonnes+1) lignes.
      * @param idColonneM
+     * @param Sup
      */
-    public void activerDiagonaleMontante(int idColonneM){
-        for (int i = 0; i < Math.min(nbColonnes,nbLignes) ;i++ ){
-            if (idColonneM-i>=0){
-                matriceCellules[i][idColonneM-i].activerCellule();
+    public void activerDiagonaleMontante(int idColonneM, String Sup){
+        if ("oui".equals(Sup)){
+            for (int i = 0; i < Math.min(nbColonnes,nbLignes) ;i++ ){
+                if (idColonneM-i>=0){
+                    matriceCellules[i][idColonneM-i].activerCellule();
+                }
+            }
+        } else {
+            for (int i = 0; i < Math.min(nbColonnes,nbLignes) ;i++ ){
+                if (idColonneM+i<nbColonnes){
+                    matriceCellules[nbLignes-1-i][idColonneM+i].activerCellule();
+                }
             }
         }
     }
@@ -157,8 +193,7 @@ public class GrilleDeJeu {
                     k+=1;
                 } 
             }
-        }
-        if (k==0){
+        } if (k==0){
             return true; 
         } else {
             return false;
@@ -187,7 +222,7 @@ public class GrilleDeJeu {
                 b += this.matriceCellules[i][j]+" | ";
             }
         }
-        return "   | "+a+b+"\n"+c+"\n";
+        return "   | "+a+b+"\n"+c+"\n"+"   | "+a+"\n";
     }
     
     

@@ -37,9 +37,12 @@ public class Partie {
      */
     public String lancerPartie (){
         System.out.println(grille);
+        
         //affiche la grille à t0
         while (!grille.cellulesToutesEteintes()){
             //tant que la grille n'est pas completement éteinte le programme suivant tourne
+            
+            nbcoups++; // on implémente le nb de coups joués
             
             //on demande ensuite à l'utilisateur de choisir l'activation d'une ligne/colonne/diagonale 
             Scanner sc = new Scanner(System.in);
@@ -54,30 +57,40 @@ public class Partie {
                     //on modifie la ligne et on affiche la grille de jeu
                     grille.activerLigneDeCellules(id_ligne);
                     System.out.println(grille);
-                    nbcoups++;
                     break;
+                    
                 case 2:
                     System.out.println("Choisissez une colonne à activer : ");
                     int id_colonne = sc.nextInt();
                     //on modifie la colonne et on affiche la grille de jeu
                     grille.activerColonneDeCellules(id_colonne);
                     System.out.println(grille);
-                    nbcoups++;
                     break;
+                    
                 case 3:
-                    System.out.println("Choisissez la diagonale montante à activer : ");
-                    int id_diagM = sc.nextInt();
-                    grille.activerDiagonaleMontante(id_diagM);
-                    System.out.println(grille);
-                    nbcoups++;
-                    break;
+                    System.out.println("Voulez vous activer une diagonale montante supérieure : ");
+                    sc.nextLine();
+                    String infOUsup = sc.nextLine();
+                    if (!"".equals(infOUsup)){
+                        System.out.println("Choisissez le numéro de la colonne de la diagonale montante à activer : ");
+                        int id_diagM = sc.nextInt();
+                        grille.activerDiagonaleMontante(id_diagM,infOUsup);
+                        System.out.println(grille);
+                        break;
+                    }
+                    
                 case 4:
-                    System.out.println("Choisissez la diagonale descendante à activer : ");
-                    int id_diagD = sc.nextInt();
-                    grille.activerDiagonaleDescendante(id_diagD);
-                    System.out.println(grille);
-                    nbcoups++;
-                    break;
+                    System.out.println("Voulez vous activer une diagonale descendante supérieure : ");
+                    sc.nextLine();
+                    String infOusup = sc.nextLine();
+                    if (!"".equals(infOusup)){
+                        System.out.println("Choisissez le numéro de la colonne de la diagonale descendante à activer : ");
+                        int id_diagD = sc.nextInt();
+                        grille.activerDiagonaleDescendante(id_diagD,infOusup);
+                        System.out.println(grille);
+                        break;
+                    }
+                    
             } 
         }
         return "Vous avez gagné la partie en "+nbcoups+" coups. ";

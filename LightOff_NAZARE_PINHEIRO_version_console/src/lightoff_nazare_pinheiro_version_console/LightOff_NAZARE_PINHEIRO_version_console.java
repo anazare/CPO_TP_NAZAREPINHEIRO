@@ -94,16 +94,29 @@ public class LightOff_NAZARE_PINHEIRO_version_console {
         // TEST AMELIORATIONS 
         
         /*// TEST GRILLE NON CARREE
-        GrilleDeJeu grille = new GrilleDeJeu(4,4);
-        //System.out.println(grille);
+        GrilleDeJeu grille = new GrilleDeJeu(6,4);
+        grille.activerDiagonaleDescendante(3,"non");
+        System.out.println(grille);*/
         
-        grille.activerDiagonaleDescendante(3);
+        /*for (int i=0; i<4; i++){
+        grille.activerDiagonaleDescendante(i,"sup");
         System.out.println(grille);
-        //test fonctionnel de activerDiagonaleDescendante().
+        } for (int i=0; i<4; i++){
+        grille.activerDiagonaleDescendante(i,"inf");
+        System.out.println(grille);
+        }
+        //test fonctionnel de activerDiagonaleDescendante().*/
         
-        grille.activerDiagonaleMontante(5);
+        /*for (int i=0; i<4; i++){
+        grille.activerDiagonaleMontante(i,"sup");
         System.out.println(grille);
-        //test fonctionnel de activerDiagonaleMontante().*/
+        }
+        for (int i=0; i<4; i++){
+        grille.activerDiagonaleMontante(i,"inf");
+        System.out.println(grille);
+        }*/
+        
+        //test fonctionnel de activerDiagonaleMontante().
         
         //TEST PROGRAMME AVEC AMELIORATION : MATRICE NON CARREE
         
@@ -111,7 +124,9 @@ public class LightOff_NAZARE_PINHEIRO_version_console {
         Partie partie = new Partie(grille);
         partie.initialiserPartie();
         partie.lancerPartie();
-        System.out.print(partie.lancerPartie()); 
+        System.out.print(partie.lancerPartie());
+        //TEST FONTIONNEL 
+        
     }
         
 }
