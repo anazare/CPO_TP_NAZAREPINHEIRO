@@ -118,15 +118,23 @@ public class LightOff_NAZARE_PINHEIRO_version_console {
         
         //test fonctionnel de activerDiagonaleMontante().
         
-        //TEST PROGRAMME AVEC AMELIORATION : MATRICE NON CARREE
+        /*//TEST PROGRAMME AVEC AMELIORATION : MATRICE NON CARREE
         
         GrilleDeJeu grille = new GrilleDeJeu(3,3);
         Partie partie = new Partie(grille);
         partie.initialiserPartie();
         partie.lancerPartie();
         System.out.print(partie.lancerPartie());
-        //TEST FONTIONNEL 
+        //TEST FONTIONNEL */
         
+        //TEST PROGRAMME AVEC AMELIORATION : différents niveaux de jeu
+        
+        GrilleDeJeu grille = new GrilleDeJeu(3,3);
+        Partie partie = new Partie(grille);
+        partie.initialiserPartie();
+        partie.lancerPartieMoyenne();
+        System.out.print(partie.lancerPartieMoyenne());
+        //TEST FONTIONNEL 
     }
         
 }
