@@ -127,14 +127,25 @@ public class LightOff_NAZARE_PINHEIRO_version_console {
         System.out.print(partie.lancerPartie());
         //TEST FONTIONNEL */
         
-        //TEST PROGRAMME AVEC AMELIORATION : différents niveaux de jeu
+        /*//TEST PROGRAMME AVEC AMELIORATION : différents niveaux de jeu
         
         GrilleDeJeu grille = new GrilleDeJeu(3,3);
         Partie partie = new Partie(grille);
         partie.initialiserPartie();
         partie.lancerPartieMoyenne();
         System.out.print(partie.lancerPartieMoyenne());
-        //TEST FONTIONNEL 
+        //TEST FONTIONNEL*/ 
+        
+        /*GrilleDeJeu grille = new GrilleDeJeu(3,3);
+        Partie partie = new Partie(grille);
+        partie.initialiserPartie();
+        partie.lancerPartieDifficile();
+        System.out.print(partie.lancerPartieDifficile());
+        //TEST FONTIONNEL*/
+        
+        
+        LancerPartie debut = new LancerPartie("difficile");
+        debut.lancer_partie();
     }
         
 }
