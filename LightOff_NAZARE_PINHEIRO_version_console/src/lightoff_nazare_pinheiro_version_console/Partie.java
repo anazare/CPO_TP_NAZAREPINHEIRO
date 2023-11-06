@@ -221,39 +221,39 @@ public class Partie {
         } 
     }
     
-    public void lancer_partie (){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Choisissez le niveau de difficulté : \n1) Facile \n2) Moyen \n3) Difficile");
-        int choix_niveau =sc.nextInt();
-        
-        switch (choix_niveau) {
-            case 1: {
-            GrilleDeJeu matrice = new GrilleDeJeu(3,3);
-            Partie partie = new Partie(matrice);
-            partie.initialiserPartie();
-            partie.lancerPartieFacile();
-            System.out.print(partie.lancerPartieFacile());
-            break;
-            }
-            case 2: {
-            GrilleDeJeu matrice = new GrilleDeJeu(4,3);
-            Partie partie = new Partie(matrice);
-            partie.initialiserPartie();
-            partie.lancerPartieMoyenne();
-            System.out.print(partie.lancerPartieMoyenne());
-            break;
-            }
-            
-            case 3:{
-            GrilleDeJeu matrice = new GrilleDeJeu(4,4);
-            Partie partie = new Partie(matrice);
-            partie.initialiserPartie();
-            partie.lancerPartieDifficile();
-            System.out.print(partie.lancerPartieDifficile());
-            break;
-            }
-        }
+    /*public void lancer_partie (){
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Choisissez le niveau de difficulté : \n1) Facile \n2) Moyen \n3) Difficile");
+    int choix_niveau =sc.nextInt();
+    
+    switch (choix_niveau) {
+    case 1: {
+    GrilleDeJeu matrice = new GrilleDeJeu(3,3);
+    Partie partie = new Partie(matrice);
+    partie.initialiserPartie();
+    partie.lancerPartieFacile();
+    System.out.print(partie.lancerPartieFacile());
+    break;
     }
+    case 2: {
+    GrilleDeJeu matrice = new GrilleDeJeu(4,3);
+    Partie partie = new Partie(matrice);
+    partie.initialiserPartie();
+    partie.lancerPartieMoyenne();
+    System.out.print(partie.lancerPartieMoyenne());
+    break;
+    }
+    
+    case 3:{
+    GrilleDeJeu matrice = new GrilleDeJeu(4,4);
+    Partie partie = new Partie(matrice);
+    partie.initialiserPartie();
+    partie.lancerPartieDifficile();
+    System.out.print(partie.lancerPartieDifficile());
+    break;
+    }
+    }
+    }*/
         
     
 }

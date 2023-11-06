@@ -144,8 +144,9 @@ public class LightOff_NAZARE_PINHEIRO_version_console {
         //TEST FONTIONNEL*/
         
         
-        LancerPartie debut = new LancerPartie("difficile");
+        LancerPartie debut = new LancerPartie("facile");
         debut.lancer_partie();
+        
     }
         
 }
