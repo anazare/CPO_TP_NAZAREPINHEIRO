@@ -27,8 +27,8 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     public FenetrePrincipale() {
         
         initComponents();
-        int nbLignes = 4;
-        int nbColonnes = 3;
+        int nbLignes = 5;
+        int nbColonnes = 5;
         this.grille = new GrilleDeJeu(nbLignes, nbColonnes);
         initialiserPartie();
         PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
@@ -87,6 +87,8 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         //Panneau horizontal 
         PanneauBoutonsDiagMontSup.setLayout(new GridLayout(1, nbColonnes));
         getContentPane().add(PanneauBoutonsDiagMontSup, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 45, nbColonnes * 40, 1 * 40));
+        DiagMontSup.setText("Diagonale Montante");
+        getContentPane().add(DiagMontSup, new org.netbeans.lib.awtextra.AbsoluteConstraints(120+nbColonnes*40, 55, 140, 20));
         this.pack();
         this.revalidate();
         // création du panneau de boutons horizontal (pour l'activation des diagonales montantes supérieures)
@@ -109,6 +111,8 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         //Panneau horizontal pour l'activation des diagonales descendantes supérieures
         PanneauBoutonsDiagMDescSup.setLayout(new GridLayout(1, nbColonnes));
         getContentPane().add(PanneauBoutonsDiagMDescSup, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, nbColonnes * 40, 1 * 40));
+        DiagDescSup.setText("Diagonale Descendante");
+        getContentPane().add(DiagDescSup, new org.netbeans.lib.awtextra.AbsoluteConstraints(120+nbColonnes*40, 100, 140, 20));
         this.pack();
         this.revalidate();
         // création du panneau de boutons horizontal (pour l'activation des diagonales descendantes supérieures)
@@ -132,6 +136,8 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         //Panneau horizontal pour l'activation des diagonales montantes inférieures
         PanneauBoutonsDiagMontInf.setLayout(new GridLayout(1, nbColonnes));
         getContentPane().add(PanneauBoutonsDiagMontInf, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140+nbLignes * 40 , nbColonnes * 40, 1 * 40));
+        DiagMontInf.setText("Diagonale Montante");
+        getContentPane().add(DiagMontInf, new org.netbeans.lib.awtextra.AbsoluteConstraints(120+nbColonnes*40, 150+nbLignes * 40, 140, 20));
         this.pack();
         this.revalidate();
         // création du panneau de boutons horizontal (pour l'activation des diagonales montantes inférieures)
@@ -154,6 +160,8 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         //Panneau horizontal pour l'activation des diagonales descendantes inférieures
         PanneauBoutonsDiagDescInf.setLayout(new GridLayout(1, nbColonnes));
         getContentPane().add(PanneauBoutonsDiagDescInf, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 185+nbLignes * 40 , nbColonnes * 40, 1 * 40));
+        DiagDescInf.setText("Diagonale Descendante");
+        getContentPane().add(DiagDescInf, new org.netbeans.lib.awtextra.AbsoluteConstraints(120+nbColonnes*40, 195+nbLignes * 40, 140, 20));
         this.pack();
         this.revalidate();
         // création du panneau de boutons horizontal (pour l'activation des  diagonales descendantes inférieures)
@@ -198,15 +206,16 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     private void initComponents() {
 
         PanneauGrille = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        DiagDescSup = new javax.swing.JLabel();
+        DiagMontInf = new javax.swing.JLabel();
         PanneauBoutonsVerticaux = new javax.swing.JPanel();
         PanneauBoutonsDiagMontSup = new javax.swing.JPanel();
         PanneauBoutonsColonne = new javax.swing.JPanel();
         PanneauBoutonsDiagMDescSup = new javax.swing.JPanel();
         PanneauBoutonsDiagMontInf = new javax.swing.JPanel();
         PanneauBoutonsDiagDescInf = new javax.swing.JPanel();
-        MessageVictoire = new javax.swing.JTextField();
+        DiagDescInf = new javax.swing.JLabel();
+        DiagMontSup = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -227,11 +236,11 @@ public class FenetrePrincipale extends javax.swing.JFrame {
 
         getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 360, 360));
 
-        jLabel2.setText("Diagonale descendante");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 460, -1, 20));
+        DiagDescSup.setText("Diagonale descendante");
+        getContentPane().add(DiagDescSup, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 460, 140, 20));
 
-        jLabel4.setText("Diagonale montante");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 490, -1, 20));
+        DiagMontInf.setText("Diagonale montante");
+        getContentPane().add(DiagMontInf, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 490, -1, 20));
 
         PanneauBoutonsVerticaux.setBackground(new java.awt.Color(255, 102, 102));
 
@@ -323,20 +332,14 @@ public class FenetrePrincipale extends javax.swing.JFrame {
 
         getContentPane().add(PanneauBoutonsDiagDescInf, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 490, 360, 20));
 
-        MessageVictoire.setText("jTextField1");
-        MessageVictoire.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MessageVictoireActionPerformed(evt);
-            }
-        });
-        getContentPane().add(MessageVictoire, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, -1, -1));
+        DiagDescInf.setText("Diagonale montante");
+        getContentPane().add(DiagDescInf, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 30, 140, 20));
+
+        DiagMontSup.setText("jLabel1");
+        getContentPane().add(DiagMontSup, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void MessageVictoireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MessageVictoireActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MessageVictoireActionPerformed
 
     /**
      * @param args the command line arguments
@@ -374,7 +377,10 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField MessageVictoire;
+    private javax.swing.JLabel DiagDescInf;
+    private javax.swing.JLabel DiagDescSup;
+    private javax.swing.JLabel DiagMontInf;
+    private javax.swing.JLabel DiagMontSup;
     private javax.swing.JPanel PanneauBoutonsColonne;
     private javax.swing.JPanel PanneauBoutonsDiagDescInf;
     private javax.swing.JPanel PanneauBoutonsDiagMDescSup;
@@ -382,7 +388,5 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     private javax.swing.JPanel PanneauBoutonsDiagMontSup;
     private javax.swing.JPanel PanneauBoutonsVerticaux;
     private javax.swing.JPanel PanneauGrille;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }
