@@ -20,15 +20,24 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     int i;
     int j;
    
-
+    public void afficher_message_victoire(){
+        if (grille.cellulesToutesEteintes()) {
+            jLabel1.setText("Vous avez gagné !");
+            this.pack();
+            this.revalidate();
+        }
+    }
     /**
      * Creates new form FenetrePrincipale
      */
     public FenetrePrincipale() {
         
         initComponents();
-        int nbLignes = 5;
-        int nbColonnes = 5;
+        int nbLignes = 4;
+        int nbColonnes = 3;
+        jLabel1.setText("");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120+nbColonnes*40, (250+nbLignes * 41)/2, 140, 20));
+        
         this.grille = new GrilleDeJeu(nbLignes, nbColonnes);
         initialiserPartie();
         PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
@@ -57,6 +66,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                 public void actionPerformed(ActionEvent e) {
                     grille.activerLigneDeCellules(j);
                     repaint();
+                    afficher_message_victoire();
                 }
             };
             
@@ -78,6 +88,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                 public void actionPerformed(ActionEvent e) {
                     grille.activerColonneDeCellules(j);
                     repaint();
+                    afficher_message_victoire();
                 }
             };
             
@@ -101,12 +112,14 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                 public void actionPerformed(ActionEvent e) {
                     grille.activerDiagonaleMontante(j, "oui");
                     repaint();
+                    afficher_message_victoire();
                 }
             };
             
             bouton_colonne.addActionListener(ecouteurClick);
             PanneauBoutonsDiagMontSup.add(bouton_colonne);
         }
+        
         
         //Panneau horizontal pour l'activation des diagonales descendantes supérieures
         PanneauBoutonsDiagMDescSup.setLayout(new GridLayout(1, nbColonnes));
@@ -125,11 +138,13 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                 public void actionPerformed(ActionEvent e) {
                     grille.activerDiagonaleDescendante(j, "oui");
                     repaint();
+                    afficher_message_victoire();
                 }
             };
             
             bouton_colonne.addActionListener(ecouteurClick);
             PanneauBoutonsDiagMDescSup.add(bouton_colonne);
+            
         }
         
         
@@ -150,11 +165,13 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                 public void actionPerformed(ActionEvent e) {
                     grille.activerDiagonaleMontante(j, "non");
                     repaint();
+                    afficher_message_victoire();
                 }
             };
             
             bouton_colonne.addActionListener(ecouteurClick);
             PanneauBoutonsDiagMontInf.add(bouton_colonne);
+            
         }
         
         //Panneau horizontal pour l'activation des diagonales descendantes inférieures
@@ -174,6 +191,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                 public void actionPerformed(ActionEvent e) {
                     grille.activerDiagonaleDescendante(j, "non");
                     repaint();
+                    afficher_message_victoire();
                 }
             };
             
@@ -216,6 +234,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         PanneauBoutonsDiagDescInf = new javax.swing.JPanel();
         DiagDescInf = new javax.swing.JLabel();
         DiagMontSup = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -338,6 +357,9 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         DiagMontSup.setText("jLabel1");
         getContentPane().add(DiagMontSup, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, -1, -1));
 
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -388,5 +410,6 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     private javax.swing.JPanel PanneauBoutonsDiagMontSup;
     private javax.swing.JPanel PanneauBoutonsVerticaux;
     private javax.swing.JPanel PanneauGrille;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
