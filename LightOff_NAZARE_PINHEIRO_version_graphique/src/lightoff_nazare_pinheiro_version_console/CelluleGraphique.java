@@ -38,8 +38,6 @@ public class CelluleGraphique extends JButton {
             g.setColor(Color.yellow);
         }
         g.fillOval(2, 2, w - 4, h - 4);
-    
-
     }
     
     

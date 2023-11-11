@@ -5,8 +5,17 @@
 package lightoff_nazare_pinheiro_version_console;
 
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 /**
@@ -14,12 +23,15 @@ import javax.swing.JButton;
  * @author anaza
  */
 public class FenetrePrincipale extends javax.swing.JFrame {
-
+    
     GrilleDeJeu grille;
     int nbCoups;
     int i;
     int j;
    
+    /**
+     *  Affiche un message de victoire en fin de partie 
+     */
     public void afficher_message_victoire(){
         if (grille.cellulesToutesEteintes()) {
             jLabel1.setText("Vous avez gagné !");
@@ -30,11 +42,11 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     /**
      * Creates new form FenetrePrincipale
      */
-    public FenetrePrincipale() {
+    public FenetrePrincipale() throws IOException {
         
         initComponents();
         int nbLignes = 4;
-        int nbColonnes = 3;
+        int nbColonnes = 4;
         jLabel1.setText("");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120+nbColonnes*40, (250+nbLignes * 41)/2, 140, 20));
         
@@ -58,7 +70,12 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         this.revalidate();
         // création du panneau de boutons verticaux (pour les lignes)
         for (i = 0; i < nbLignes; i++) {
-            JButton bouton_ligne = new JButton();
+            BufferedImage bufferedImage = ImageIO.read(new File("fleche_droite.png"));
+            Image image1 = bufferedImage.getScaledInstance(40, 40, Image.SCALE_DEFAULT);
+
+            ImageIcon icon1 = new ImageIcon(image1);
+            
+            JButton bouton_ligne = new JButton(icon1);
             
             ActionListener ecouteurClick = new ActionListener() {
                 final int j = i;
@@ -80,7 +97,11 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         this.revalidate();
         // création du panneau de boutons horizontal (pour les colonnes)
         for (i = 0; i < nbColonnes; i++) {
-            JButton bouton_colonne = new JButton();
+            BufferedImage bufferedImage = ImageIO.read(new File("fleche_bas.png"));
+            Image image = bufferedImage.getScaledInstance(40, 40, Image.SCALE_DEFAULT);
+
+            ImageIcon icon = new ImageIcon(image);
+            JButton bouton_colonne = new JButton(icon);
             
             ActionListener ecouteurClick = new ActionListener() {
                 final int j = i;
@@ -104,7 +125,11 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         this.revalidate();
         // création du panneau de boutons horizontal (pour l'activation des diagonales montantes supérieures)
         for (i = 0; i < nbColonnes; i++) {
-            JButton bouton_colonne = new JButton();
+            BufferedImage bufferedImage = ImageIO.read(new File("fleche_montante.png"));
+            Image image1 = bufferedImage.getScaledInstance(40, 40, Image.SCALE_DEFAULT);
+
+            ImageIcon icon1 = new ImageIcon(image1);
+            JButton bouton_colonne = new JButton(icon1);
             
             ActionListener ecouteurClick = new ActionListener() {
                 final int j = i;
@@ -130,7 +155,11 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         this.revalidate();
         // création du panneau de boutons horizontal (pour l'activation des diagonales descendantes supérieures)
         for (i = 0; i < nbColonnes; i++) {
-            JButton bouton_colonne = new JButton();
+            BufferedImage bufferedImage = ImageIO.read(new File("fleche_descendante.png"));
+            Image image1 = bufferedImage.getScaledInstance(40, 40, Image.SCALE_DEFAULT);
+
+            ImageIcon icon1 = new ImageIcon(image1);
+            JButton bouton_colonne = new JButton(icon1);
             
             ActionListener ecouteurClick = new ActionListener() {
                 final int j = i;
@@ -157,7 +186,11 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         this.revalidate();
         // création du panneau de boutons horizontal (pour l'activation des diagonales montantes inférieures)
         for (i = 0; i < nbColonnes; i++) {
-            JButton bouton_colonne = new JButton();
+            BufferedImage bufferedImage = ImageIO.read(new File("fleche_montante.png"));
+            Image image1 = bufferedImage.getScaledInstance(40, 40, Image.SCALE_DEFAULT);
+
+            ImageIcon icon1 = new ImageIcon(image1);
+            JButton bouton_colonne = new JButton(icon1);
             
             ActionListener ecouteurClick = new ActionListener() {
                 final int j = i;
@@ -183,7 +216,12 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         this.revalidate();
         // création du panneau de boutons horizontal (pour l'activation des  diagonales descendantes inférieures)
         for (i = 0; i < nbColonnes; i++) {
-            JButton bouton_colonne = new JButton();
+            BufferedImage bufferedImage = ImageIO.read(new File("fleche_descendante.png"));
+            Image image1 = bufferedImage.getScaledInstance(40, 40, Image.SCALE_DEFAULT);
+
+            ImageIcon icon1 = new ImageIcon(image1);
+            JButton bouton_colonne = new JButton(icon1);
+            
             
             ActionListener ecouteurClick = new ActionListener() {
                 final int j = i;
@@ -208,12 +246,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         grille.melangerMatriceAleatoirement(10);
     }
     
-    /*public String arreterPartie(){
-    if (grille.cellulesToutesEteintes()){
-    return "Vous avez gagné la partie";
-    }
-    }*/
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -354,7 +387,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         DiagDescInf.setText("Diagonale montante");
         getContentPane().add(DiagDescInf, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 30, 140, 20));
 
-        DiagMontSup.setText("jLabel1");
+        DiagMontSup.setText("Diagonale descendante");
         getContentPane().add(DiagMontSup, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, -1, -1));
 
         jLabel1.setText("jLabel1");
@@ -393,7 +426,11 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FenetrePrincipale().setVisible(true);
+                try {
+                    new FenetrePrincipale().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(FenetrePrincipale.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
